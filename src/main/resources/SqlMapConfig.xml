@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--可以将数据库中user_name转化成userName与实体类属性对应,如果数据库使用如user_name的命名方式，实体类采用驼峰命名。配置后无需写resultMapper将数据库字段和实体类属性对应-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <plugins>
+        <!--分页助手-->
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+            <!-- 该参数默认为false -->
+            <!-- 设置为true时，使用RowBounds分页会进行count查询 -->
+            <property name="rowBoundsWithCount" value="true"/>
+        </plugin>
+
+    </plugins>
+
+</configuration>
